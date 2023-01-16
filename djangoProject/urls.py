@@ -17,12 +17,16 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 
-from app.views import AuthorModelViewSet
+from app.views import AuthorModelViewSet, ArticleModelViewSet, BookModelViewSet, BiographyModelViewSet
 
 
 router = DefaultRouter()
 router.register('authors', AuthorModelViewSet)
+router.register('article', ArticleModelViewSet)
+router.register('biography', BiographyModelViewSet)
+router.register('book', BookModelViewSet)
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include(router.urls))
+    path('api/', include(router.urls)),
+    path('api/', admin.site.urls),
 ]
