@@ -1,4 +1,5 @@
 from rest_framework.decorators import action
+from rest_framework.permissions import AllowAny, IsAuthenticatedOrReadOnly
 from rest_framework.response import Response
 from rest_framework.viewsets import ModelViewSet, ViewSet
 from .models import Author, Book, Article, Biography
@@ -19,6 +20,7 @@ class AuthorModelViewSet(ModelViewSet):
 
 
 class BookModelViewSet(ModelViewSet):
+    permission_classes = [AllowAny]
     queryset = Book.objects.all()
     serializer_class = BookModelSerializer
 
