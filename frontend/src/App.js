@@ -97,33 +97,33 @@ class App extends React.Component{
     }
 
     render() {
-      return (
-          <div className='App'>
-            <BrowserRouter>
-                <nav>
-                    <ul>
-                        <li>
-                            <Link to= '/'>Authors</Link>
-                        </li>
-                        <li>
-                            <Link to= '/books'>Books</Link>
-                        </li>
-                        <li>
-                            {this.is_authenticated() ? <button onClick={() => this.logout()}>
-                                Logout</button> : <Link to='/login'>Login</Link>}
-                        </li>
-                    </ul>
-                </nav>
-                <Switch>
-                    <Route exact path='/' component={() => <AuthorList authors={this.state.authors} />} />
-                    <Route exact path='/books' component={() => <BookList items={this.state.books} />} />
-                    <Route exact path='/author/:id' component={() => <AuthorBookList items={this.state.books} />} />
-                    <Route exact path='/login' component={() => <LoginForm get_token={(login, password) => this.get_token(login, password)}/>} />
-                    <Redirect from='/authors' to='/' />
-                    <Route component={NotFound404}/>
-                </Switch>
-            </BrowserRouter>
-          </div>
+        return (
+            <div className='App'>
+                <BrowserRouter>
+                    <nav>
+                        <ul>
+                            <li>
+                                <Link to='/'>Authors</Link>
+                            </li>
+                            <li>
+                                <Link to='/books'>Books</Link>
+                            </li>
+                            <li>
+                                {this.is_authenticated() ? <button onClick={() => this.logout()}>
+                                    Logout</button> : <Link to='/login'>Login</Link>}
+                            </li>
+                        </ul>
+                    </nav>
+                    <Switch>
+                        <Route exact path='/' component={() => <AuthorList authors={this.state.authors} />} />
+                        <Route exact path='/books' component={() => <BookList items={this.state.books} />} />
+                        <Route exact path='/author/:id' component={() => <AuthorBookList items={this.state.books} />} />
+                        <Route exact path='/login' component={() => <LoginForm get_token={(login, password) => this.get_token(login, password)}/>} />
+                        <Redirect from='/authors' to='/' />
+                        <Route component={NotFound404}/>
+                    </Switch>
+                </BrowserRouter>
+            </div>
       )
     }
 }
