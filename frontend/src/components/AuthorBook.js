@@ -2,7 +2,7 @@ import React from "react";
 import {useParams} from "react-router-dom";
 
 
-const BookItem =({item}) => {
+const BookItem = ({item}) => {
     return (
         <tr>
             <td>
