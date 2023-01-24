@@ -25,7 +25,7 @@ router = DefaultRouter()
 router.register('authors', AuthorModelViewSet)
 router.register('article', ArticleModelViewSet)
 router.register('biography', BiographyModelViewSet)
-router.register('book', BookModelViewSet)
+router.register('books', BookModelViewSet)
 router.register('my', MyAPIView, basename='my')
 
 

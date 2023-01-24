@@ -8,20 +8,20 @@ class AuthorModelSerializer(ModelSerializer):
         fields = '__all__'
 
 
-class BiographyModelSerializer(HyperlinkedModelSerializer):
+class BiographyModelSerializer(ModelSerializer):
     class Meta:
         model = Biography
         fields = '__all__'
 
 
-class ArticleModelSerializer(HyperlinkedModelSerializer):
+class ArticleModelSerializer(ModelSerializer):
     author = AuthorModelSerializer()
     class Meta:
         model = Article
         fields = '__all__'
 
 
-class BookModelSerializer(HyperlinkedModelSerializer):
+class BookModelSerializer(ModelSerializer):
     author = AuthorModelSerializer(many=True)
 
     class Meta:
