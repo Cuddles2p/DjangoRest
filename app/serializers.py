@@ -9,6 +9,12 @@ class AuthorModelSerializer(ModelSerializer):
         fields = '__all__'
 
 
+class AuthorModelSerializer2(ModelSerializer):
+    class Meta:
+        model = Author
+        fields = ['first_name']
+
+
 class BiographyModelSerializer(ModelSerializer):
     class Meta:
         model = Biography
@@ -17,6 +23,7 @@ class BiographyModelSerializer(ModelSerializer):
 
 class ArticleModelSerializer(ModelSerializer):
     author = AuthorModelSerializer()
+
     class Meta:
         model = Article
         fields = '__all__'
@@ -24,6 +31,7 @@ class ArticleModelSerializer(ModelSerializer):
 
 class BookModelSerializer(ModelSerializer):
     authors = serializers.StringRelatedField(many=True)
+
     class Meta:
         model = Book
         fields = '__all__'
