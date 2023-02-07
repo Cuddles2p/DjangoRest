@@ -20,6 +20,7 @@ from rest_framework.routers import DefaultRouter
 from rest_framework.authtoken.views import obtain_auth_token
 from app.views import AuthorModelViewSet, ArticleModelViewSet, BookModelViewSet, BiographyModelViewSet, MyAPIView
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView, TokenVerifyView
+from graphene_django.views import GraphQLView
 
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
@@ -49,6 +50,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api-auth/', include('rest_framework.urls')),
     path('api-token-auth/', obtain_auth_token),
+    path('graphql/', GraphQLView.as_view(graphiql=True)),
     path('api/', include(router.urls)),
 
     path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
