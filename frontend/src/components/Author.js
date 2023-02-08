@@ -1,14 +1,17 @@
 import React from "react"
 import {Link} from "react-router-dom"
 
+
+
+
 const AuthorItem =({author}) => {
     return (
         <tr>
             <td>
-                <Link to={`author/${author.id}`}>{author.id}</Link>
+                <Link to={`authors/${author.id}/`}>{author.id}</Link>
             </td>
             <td>
-                {author.first_name}
+                {author.name}
             </td>
             <td>
                 {author.birthday_year}
@@ -20,15 +23,11 @@ const AuthorItem =({author}) => {
 const AuthorList = ({authors}) => {
     return (
         <table>
-            <th>
-                ID
-            </th>
-            <th>
-                First name
-            </th>
-            <th>
-                Birthday year
-            </th>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Birthday year</th>
+            </tr>
             {authors.map((author) => <AuthorItem author={author} />)}
         </table>
     )

@@ -16,7 +16,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('text', models.CharField(max_length=32)),
-                ('author', models.ManyToManyField(to='app.author')),
+                ('author', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, to='app.author')),
             ],
         ),
         migrations.CreateModel(

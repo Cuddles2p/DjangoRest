@@ -3,14 +3,16 @@
     "model": "app.book",
     "id" : "1",
     "fields": {
-      "name": "Преступление и наказание"
+      "name": "Преступление и наказание",
+      "author_id": "1"
     }
   },
   {
     "model": "app.book",
     "id" : "2",
     "fields": {
-      "name": "Алые паруса"
+      "name": "Алые паруса",
+      "author_id": "2"
     }
   }
 ]

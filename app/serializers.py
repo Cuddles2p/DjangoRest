@@ -12,7 +12,7 @@ class AuthorModelSerializer(ModelSerializer):
 class AuthorModelSerializer2(ModelSerializer):
     class Meta:
         model = Author
-        fields = ['first_name']
+        fields = ['id','name','birthday_year']
 
 
 class BiographyModelSerializer(ModelSerializer):
@@ -30,7 +30,7 @@ class ArticleModelSerializer(ModelSerializer):
 
 
 class BookModelSerializer(ModelSerializer):
-    authors = serializers.StringRelatedField(many=True)
+    # authors = serializers.StringRelatedField(many=True)
 
     class Meta:
         model = Book

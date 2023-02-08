@@ -1,4 +1,4 @@
-from rest_framework import generics
+from rest_framework import generics, permissions
 from rest_framework.decorators import action
 from rest_framework.permissions import IsAuthenticatedOrReadOnly, IsAuthenticated
 from rest_framework.response import Response
@@ -13,17 +13,17 @@ class AuthorPaginator(LimitOffsetPagination):
 
 
 class AuthorModelViewSet(ModelViewSet):
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     queryset = Author.objects.all()
-    # permission_classes = [IsAuthenticated]
     serializer_class = AuthorModelSerializer
-    filterset_fields = ['first_name', 'last_name', 'birthday_year']
+    filterset_fields = ['name', 'birthday_year']
     pagination_class = AuthorPaginator
 
 
 class BookModelViewSet(ModelViewSet):
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     queryset = Book.objects.all()
     serializer_class = BookModelSerializer
-    # permission_classes = [IsAuthenticated]
 
 
 

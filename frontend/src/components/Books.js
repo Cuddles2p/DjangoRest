@@ -11,7 +11,7 @@ const BookItem =({item}) => {
                 {item.name}
             </td>
             <td>
-                {item.author.first_name}
+                {item.author}
             </td>
         </tr>
     )
@@ -21,15 +21,13 @@ const BookItem =({item}) => {
 const BookList = ({items}) => {
     return (
         <table>
-            <th>
-                ID
-            </th>
-            <th>
-                Name
-            </th>
-            <th>
-                Author
-            </th>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Author</th>
+                </tr>
+            </thead>
             {items.map((item) => <BookItem item={item} />)}
         </table>
     )

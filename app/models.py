@@ -3,9 +3,11 @@ from uuid import uuid4
 
 
 class Author(models.Model):
-    first_name = models.CharField(max_length=64)
-    last_name = models.CharField(max_length=64)
+    name = models.CharField(max_length=64)
     birthday_year = models.PositiveIntegerField()
+
+    def __str__(self):
+        return self.name
 
 class Biography(models.Model):
     text = models.TextField()
@@ -14,6 +16,9 @@ class Biography(models.Model):
 class Book(models.Model):
     name = models.CharField(max_length=32)
     author = models.ManyToManyField(Author)
+
+    def __str__(self):
+        return self.name
 
 class Article(models.Model):
     name = models.CharField(max_length=32)

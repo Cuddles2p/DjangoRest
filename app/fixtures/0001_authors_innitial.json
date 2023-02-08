@@ -3,8 +3,7 @@
     "model": "app.author",
     "id" : "1",
     "fields": {
-      "first_name": "Федор",
-      "last_name": "Достоевский",
+      "name": "Федор",
       "birthday_year": "1821"
     }
   },
@@ -12,18 +11,8 @@
     "model": "app.author",
     "id" : "2",
     "fields": {
-      "first_name": "Александр",
-      "last_name": "Грин",
+      "name": "Александр",
       "birthday_year": "1880"
-    }
-  },
-  {
-    "model": "app.author",
-    "id" : "3",
-    "fields": {
-      "first_name": "Арнольд",
-      "last_name": "Шварценеггер",
-      "birthday_year": "1986"
     }
   }
 ]

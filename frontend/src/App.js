@@ -5,9 +5,9 @@ import AuthorList from "./components/Author"
 import BookList from "./components/Books";
 import {BrowserRouter, Route, Link, Switch, Redirect} from "react-router-dom"
 import AuthorBookList from "./components/AuthorBook"
-import axios, {request} from "axios"
+import axios from "axios"
 import LoginForm from "./components/Auth"
-import Cookies from "universal-cookie/es6";
+import Cookies from "universal-cookie";
 
 
 const NotFound404 = ({location}) => {
@@ -38,7 +38,7 @@ class App extends React.Component{
     }
 
     is_authenticated() {
-        return this.state.token != ''
+        return this.state.token !== ''
     }
 
     logout() {
@@ -52,8 +52,8 @@ class App extends React.Component{
         this.setState({'token': token}, () => this.load_data())
     }
 
-    get_token(login, password) {
-        axios.post('http://127.0.0.1:8000/api-token-auth/', {username: login, password: password})
+    get_token(username, password) {
+        axios.post('http://127.0.0.1:8000/api-token-auth/', {username: username, password: password})
             .then(response => {
                 this.set_token(response.data['token'])
             }).catch(error => alert('Неверный пароль'))
@@ -65,7 +65,7 @@ class App extends React.Component{
         }
         if (this.is_authenticated())
         {
-            headers['Authorization'] = 'Token ' + this.state.token
+            headers['Authorization'] = 'Token' + this.state.token
         }
         return headers
     }
@@ -77,7 +77,7 @@ class App extends React.Component{
                 const authors = response.data
                     this.setState(
                         {
-                            'authors': authors ['results']
+                            'authors': authors
                         }
                     )
             }).catch(error => console.log(error))
@@ -87,7 +87,7 @@ class App extends React.Component{
                 const books = response.data
                     this.setState(
                         {
-                            'books': books['results']
+                            'books': books
                         }
                     )
             }).catch(error => console.log(error))
@@ -119,7 +119,7 @@ class App extends React.Component{
                         <Route exact path='/' component={() => <AuthorList authors={this.state.authors} />} />
                         <Route exact path='/books' component={() => <BookList items={this.state.books} />} />
                         <Route exact path='/author/:id' component={() => <AuthorBookList items={this.state.books} />} />
-                        <Route exact path='/login' component={() => <LoginForm get_token={(login, password) => this.get_token(login, password)}/>} />
+                        <Route exact path='/login' component={() => <LoginForm get_token={(username, password) => this.get_token(username, password)}/>} />
                         <Redirect from='/authors' to='/' />
                         <Route component={NotFound404}/>
                     </Switch>
