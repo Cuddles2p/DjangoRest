@@ -1,0 +1,35 @@
+[
+  {
+    "model": "app.author",
+    "id" : "1",
+    "fields": {
+      "name": "Федор",
+      "birthday_year": "1821"
+    }
+  },
+  {
+    "model": "app.author",
+    "id" : "2",
+    "fields": {
+      "name": "Александр",
+      "birthday_year": "1880"
+    }
+  },
+  {
+    "model": "app.author",
+    "id" : "3",
+    "fields": {
+      "name": "Антон",
+      "birthday_year": "1860"
+    }
+  },
+  {
+    "model": "app.author",
+    "id" : "4",
+    "fields": {
+      "name": "Иван",
+      "birthday_year": "1818"
+    }
+  }
+
+]

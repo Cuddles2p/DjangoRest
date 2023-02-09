@@ -1,0 +1,34 @@
+[
+  {
+    "model": "app.book",
+    "id" : "1",
+    "fields": {
+      "name": "Преступление и наказание",
+      "author_id": "1"
+    }
+  },
+  {
+    "model": "app.book",
+    "id" : "2",
+    "fields": {
+      "name": "Алые паруса",
+      "author_id": "2"
+    }
+  },
+  {
+    "model": "app.book",
+    "id" : "3",
+    "fields": {
+      "name": "Вишневый сад",
+      "author_id": "3"
+    }
+  },
+  {
+    "model": "app.book",
+    "id" : "4",
+    "fields": {
+      "name": "Отцы и дети",
+      "author_id": "4"
+    }
+  }
+]
