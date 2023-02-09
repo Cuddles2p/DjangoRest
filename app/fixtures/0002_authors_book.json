@@ -14,5 +14,21 @@
       "name": "Алые паруса",
       "author_id": "2"
     }
+  },
+  {
+    "model": "app.book",
+    "id" : "3",
+    "fields": {
+      "name": "Вишневый сад",
+      "author_id": "3"
+    }
+  },
+  {
+    "model": "app.book",
+    "id" : "4",
+    "fields": {
+      "name": "Отцы и дети",
+      "author_id": "4"
+    }
   }
 ]

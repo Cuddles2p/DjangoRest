@@ -19,9 +19,9 @@ const BookItem = ({item}) => {
 }
 
 
-const AuthorBookList = ({books}) => {
+const AuthorBookList = ({items}) => {
     let {id} = useParams()
-    let filtered_books = books.filter((book) => book.author.id === id)
+    let filtered_items = items.filter((item) => item.author.id === id)
     return (
         <table>
             <thead>
@@ -37,7 +37,7 @@ const AuthorBookList = ({books}) => {
                     </th>
                 </tr>
             </thead>
-            {filtered_books.map((book) => <BookItem book={book} />)}
+            {filtered_items.map((item) => <BookItem item={item} />)}
         </table>
     )
 }

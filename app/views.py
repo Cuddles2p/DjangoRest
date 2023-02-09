@@ -13,7 +13,7 @@ class AuthorPaginator(LimitOffsetPagination):
 
 
 class AuthorModelViewSet(ModelViewSet):
-    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    permission_classes = [IsAuthenticated]
     queryset = Author.objects.all()
     serializer_class = AuthorModelSerializer
     filterset_fields = ['name', 'birthday_year']
@@ -21,10 +21,9 @@ class AuthorModelViewSet(ModelViewSet):
 
 
 class BookModelViewSet(ModelViewSet):
-    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    permission_classes = [IsAuthenticated]
     queryset = Book.objects.all()
     serializer_class = BookModelSerializer
-
 
 
 class ArticleModelViewSet(ModelViewSet):
